@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'array-slice'
+	name: 'array-slice'
 };
