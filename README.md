@@ -1,6 +1,6 @@
-# Array-slice
+# ember-cli-array-slice
 
-This README outlines the details of collaborating on this Ember addon.
+Ember CLI array slice addon.
 
 ## Installation
 

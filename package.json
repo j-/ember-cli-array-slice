@@ -1,7 +1,7 @@
 {
-  "name": "array-slice",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "ember-cli-array-slice",
+  "version": "1.0.0",
+  "description": "Ember CLI array slice addon",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -15,7 +15,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Jamie Hoeks <j@skeoh.com>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
@@ -33,7 +33,12 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember",
+    "cli",
+    "array",
+    "proxy",
+    "slice"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
