@@ -2,24 +2,58 @@
 
 Ember CLI array slice addon.
 
-## Installation
+`ember-cli-array-slice` exposes an [Ember][ember] [ArrayProxy][proxy] subclass which proxies a slice
+of a given content array. Its values will update when the original array is modified.
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+## Example
 
-## Running
+```js
+import ArraySlice from 'array-slice';
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+var sliced = ArraySlice.create({
+	content: [3, 1, 4, 1, 5, 9],
+	offset: 2,
+	limit: 3
+});
 
-## Running Tests
+console.log(sliced.toArray()); // [4, 1, 5];
+```
 
-* `ember test`
-* `ember test --server`
+## Options
 
-## Building
+**`content`**: Ember.Array (optional, default = `[]`)
 
-* `ember build`
+The content array. Must be an object that implements `Ember.Array` and/or `Ember.MutableArray`.
+See [`Ember.ArrayProxy#content`][content].
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+**`offset`**: Number (optional, default = `0`)
+
+Index where slice begins.
+
+**`limit`**: Number (optional, default = `Infinity`)
+
+Maximum number of elements to hold in the array. By default, holds all elements after `offset`.
+
+## Installing
+
+With [npm][npm]:
+
+```sh
+$ npm install --save ember-cli-array-slice
+```
+
+Or with [Ember CLI][cli]:
+
+```sh
+$ ember install:npm ember-cli-array-slice
+```
+
+[ember]: http://emberjs.com/
+[proxy]: http://emberjs.com/api/classes/Ember.ArrayProxy.html
+[content]: http://emberjs.com/api/classes/Ember.ArrayProxy.html#property_content
+[cli]: http://www.ember-cli.com/
+[npm]: https://www.npmjs.com/
+
+## License
+
+[MIT license](LICENSE.md).
