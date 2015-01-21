@@ -15,4 +15,16 @@ var ArraySlice = Ember.ArrayProxy.extend({
 	}
 });
 
+ArraySlice.computed = {
+	slice: function (prop, offset, limit) {
+		return function () {
+			return ArraySlice.create({
+				content: this.get(prop),
+				offset: offset,
+				limit: limit
+			});
+		}.property(prop);
+	}
+};
+
 export default ArraySlice;
