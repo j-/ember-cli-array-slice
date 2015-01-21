@@ -19,7 +19,7 @@ var sliced = ArraySlice.create({
 console.log(sliced.toArray()); // [4, 1, 5];
 ```
 
-## Options
+## Properties
 
 **`content`**: Ember.Array (optional, default = `[]`)
 
