@@ -48,12 +48,12 @@ Or with [Ember CLI][cli]:
 $ ember install:npm ember-cli-array-slice
 ```
 
-[ember]: http://emberjs.com/
-[proxy]: http://emberjs.com/api/classes/Ember.ArrayProxy.html
-[content]: http://emberjs.com/api/classes/Ember.ArrayProxy.html#property_content
-[cli]: http://www.ember-cli.com/
-[npm]: https://www.npmjs.com/
-
 ## License
 
 [MIT license](LICENSE.md).
+
+[ember]: http://emberjs.com/
+[proxy]: http://emberjs.com/api/classes/Ember.ArrayProxy.html
+[content]: http://emberjs.com/api/classes/Ember.ArrayProxy.html#property_content
+[npm]: https://www.npmjs.com/
+[cli]: http://www.ember-cli.com/
