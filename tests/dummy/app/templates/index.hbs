@@ -1,0 +1,30 @@
+<ul id="output">
+	{{#each val in output}}
+		<li>{{val}}</li>
+	{{/each}}
+</ul>
+
+<style>
+#output {
+	height: 275px;
+	overflow: auto;
+}
+</style>
+
+<h3>Offset ({{output.offset}})</h3>
+
+<div class="buttons">
+	<button {{action 'offset' -2}}>-2</button>
+	<button {{action 'offset' -1}}>-1</button>
+	<button {{action 'offset' 1}}>+1</button>
+	<button {{action 'offset' 2}}>+2</button>
+</div>
+
+<h3>Limit ({{output.limit}})</h3>
+
+<div class="buttons">
+	<button {{action 'limit' -2}}>-2</button>
+	<button {{action 'limit' -1}}>-1</button>
+	<button {{action 'limit' 1}}>+1</button>
+	<button {{action 'limit' 2}}>+2</button>
+</div>
