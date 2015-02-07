@@ -1,18 +1,16 @@
 import Em from 'ember';
 import ArraySlice from 'array-slice';
+import ArraySequence from 'array-sequence';
 
 var IndexController = Em.Controller.extend({
 	count: 15,
 
-	input: Em.A(),
-
-	updateInput: function () {
-		var count = this.get('count');
-		var items = this.get('input');
-		for (var i = items.get('length'); i < count; i++) {
-			items.pushObject(i + 1);
-		}
-	}.on('init').observes('count'),
+	input: function () {
+		return ArraySequence.create({
+			offset: 1,
+			length: this.get('count')
+		});
+	}.property(),
 
 	output: ArraySlice.computed.slice('input', 0, 5),
 
@@ -24,7 +22,7 @@ var IndexController = Em.Controller.extend({
 			this.get('output').incrementProperty('limit', inc);
 		},
 		items: function (inc) {
-			this.incrementProperty('count', inc);
+			this.incrementProperty('input.length', inc);
 		}
 	}
 });
