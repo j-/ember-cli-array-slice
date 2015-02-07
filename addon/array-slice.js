@@ -84,7 +84,7 @@ var ArraySlice = Em.ArrayProxy.extend({
 		var arrangedLength = get(arranged, 'length');
 		var addedItems = content.slice(offset, offset + addedCount);
 		arranged.replace(
-			Math.max(0, arrangedLength - i - addedCount),
+			Math.max(0, arrangedLength - i - addedCount + offset),
 			addedCount
 		);
 		arranged.replace(0, 0, addedItems);
