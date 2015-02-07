@@ -1,5 +1,7 @@
 # ember-cli-array-slice
 
+[![master branch build status](https://travis-ci.org/j-/ember-cli-array-slice.svg?branch=master)](https://travis-ci.org/j-/ember-cli-array-slice)
+
 Ember CLI array slice addon.
 
 `ember-cli-array-slice` exposes an [Ember][ember] [ArrayProxy][proxy] subclass which proxies a slice
