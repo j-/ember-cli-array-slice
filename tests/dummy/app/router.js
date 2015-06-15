@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+	this.route('test-offset');
+	this.route('test-limit');
 });
 
 export default Router;

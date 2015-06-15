@@ -1,14 +1,13 @@
 import Em from 'ember';
-import ArraySlice from 'array-slice';
+import ArrayOffset from 'array-slice/array-offset';
 var computed = Em.computed;
 
-var IndexController = Em.Controller.extend({
+var TestOffsetController = Em.Controller.extend({
 	input: Em.A(),
 
 	output: computed(function () {
-		return ArraySlice.create({
+		return ArrayOffset.create({
 			content: this.get('input'),
-			limit: 5,
 			offset: 0
 		});
 	}),
@@ -54,4 +53,4 @@ var IndexController = Em.Controller.extend({
 	}
 });
 
-export default IndexController;
+export default TestOffsetController;

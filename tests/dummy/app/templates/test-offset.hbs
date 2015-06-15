@@ -1,0 +1,32 @@
+<h2>Offset proxy test</h2>
+
+<ul id="output">
+	{{#each val in output}}
+		<li>{{val}}</li>
+	{{/each}}
+</ul>
+
+<style>
+#output {
+	height: 275px;
+	overflow: auto;
+}
+</style>
+
+<h3>Offset ({{output.offset}})</h3>
+
+<div class="buttons">
+	<button {{action 'offset' -2}}>-2</button>
+	<button {{action 'offset' -1}}>-1</button>
+	<button {{action 'offset' 1}}>+1</button>
+	<button {{action 'offset' 2}}>+2</button>
+</div>
+
+<h3>Items ({{input.length}})</h3>
+
+<div class="buttons">
+	<button {{action 'items' -2}}>-2</button>
+	<button {{action 'items' -1}}>-1</button>
+	<button {{action 'items' 1}}>+1</button>
+	<button {{action 'items' 2}}>+2</button>
+</div>

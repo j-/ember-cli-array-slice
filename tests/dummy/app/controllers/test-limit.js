@@ -1,15 +1,14 @@
 import Em from 'ember';
-import ArraySlice from 'array-slice';
+import ArrayLimit from 'array-slice/array-limit';
 var computed = Em.computed;
 
-var IndexController = Em.Controller.extend({
+var TestLimitController = Em.Controller.extend({
 	input: Em.A(),
 
 	output: computed(function () {
-		return ArraySlice.create({
+		return ArrayLimit.create({
 			content: this.get('input'),
-			limit: 5,
-			offset: 0
+			limit: 5
 		});
 	}),
 
@@ -54,4 +53,4 @@ var IndexController = Em.Controller.extend({
 	}
 });
 
-export default IndexController;
+export default TestLimitController;
