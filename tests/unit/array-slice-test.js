@@ -1,75 +1,77 @@
+/* global QUnit */
 import Em from 'ember';
-import { test } from 'ember-qunit';
 import ArraySlice from 'array-slice';
 
-test('constructor exists', function () {
-	ok(ArraySlice, 'ArraySlice is not null or undefined');
-	equal(typeof ArraySlice, 'function', 'ArraySlice is function');
+QUnit.module('ArraySlice');
+
+QUnit.test('constructor exists', function (assert) {
+	assert.ok(ArraySlice, 'ArraySlice is not null or undefined');
+	assert.equal(typeof ArraySlice, 'function', 'ArraySlice is function');
 });
 
-test('content is initialized', function () {
-	var arr = ['a', 'b', 'c'];
+QUnit.test('content is initialized', function (assert) {
+	var arr = Em.A(['a', 'b', 'c']);
 	var slice = ArraySlice.create({
 		content: arr
 	});
-	equal(slice.get('arrangedContent.length'), 3);
-	equal(slice.get('content.length'), 3);
-	equal(slice.get('length'), 3);
-	equal(slice.get('arrangedContent').join(''), 'abc');
+	assert.equal(slice.get('arrangedContent.length'), 3);
+	assert.equal(slice.get('content.length'), 3);
+	assert.equal(slice.get('length'), 3);
+	assert.deepEqual(slice.toArray(), ['a', 'b', 'c']);
 });
 
-test('offset defaults to zero', function () {
+QUnit.test('offset defaults to zero', function (assert) {
 	var slice = ArraySlice.create({
-		content: ['a', 'b', 'c']
+		content: Em.A(['a', 'b', 'c'])
 	});
-	equal(slice.get('offset'), 0);
+	assert.equal(slice.get('offset'), 0);
 });
 
-test('offset can be initialized', function () {
+QUnit.test('offset can be initialized', function (assert) {
 	var slice = ArraySlice.create({
-		content: ['a', 'b', 'c'],
+		content: Em.A(['a', 'b', 'c']),
 		offset: 2
 	});
-	equal(slice.get('offset'), 2);
+	assert.equal(slice.get('offset'), 2);
 });
 
-test('arranged content matches original content', function () {
+QUnit.test('arranged content matches original content', function (assert) {
 	var slice = ArraySlice.create({
-		content: ['a', 'b', 'c'],
+		content: Em.A(['a', 'b', 'c']),
 		offset: 2
 	});
-	equal(slice.objectAt(0), 'c');
+	assert.equal(slice.objectAt(0), 'c');
 });
 
-test('arranged content length does not exceed limit', function () {
+QUnit.test('arranged content length does not exceed limit', function (assert) {
 	var slice = ArraySlice.create({
-		content: ['a', 'b', 'c'],
+		content: Em.A(['a', 'b', 'c']),
 		limit: 2
 	});
-	equal(slice.get('length'), 2);
+	assert.equal(slice.get('length'), 2);
 });
 
-test('offset can be updated', function () {
+QUnit.test('offset can be updated', function (assert) {
 	var slice = ArraySlice.create({
-		content: ['a', 'b', 'c']
+		content: Em.A(['a', 'b', 'c'])
 	});
-	equal(slice.objectAt(0), 'a');
-	equal(slice.get('length'), 3);
+	assert.equal(slice.objectAt(0), 'a');
+	assert.equal(slice.get('length'), 3);
 	slice.set('offset', 1);
-	equal(slice.objectAt(0), 'b');
-	equal(slice.get('length'), 2);
+	assert.equal(slice.objectAt(0), 'b');
+	assert.equal(slice.get('length'), 2);
 	slice.set('offset', 2);
-	equal(slice.objectAt(0), 'c');
-	equal(slice.get('length'), 1);
+	assert.equal(slice.objectAt(0), 'c');
+	assert.equal(slice.get('length'), 1);
 });
 
-test('content array unshift', function () {
-	var arr = ['a', 'b', 'c'];
+QUnit.test('content array unshift', function (assert) {
+	var arr = Em.A(['a', 'b', 'c']);
 	var slice = ArraySlice.create({
 		content: arr,
 		offset: 1
 	});
-	equal(slice.objectAt(0), 'b');
+	assert.equal(slice.objectAt(0), 'b');
 	arr.unshiftObject('x');
-	equal(slice.objectAt(0), 'a');
+	assert.equal(slice.objectAt(0), 'a');
 });
