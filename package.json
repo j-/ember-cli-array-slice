@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-array-slice",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Ember CLI array slice addon",
   "directories": {
     "doc": "doc",
