@@ -5,11 +5,13 @@ var computed = Em.computed;
 var TestLimitController = Em.Controller.extend({
 	input: Em.A(),
 
-	output: computed(function () {
-		return ArrayLimit.create({
-			content: this.get('input'),
-			limit: 5
-		});
+	output: computed({
+		get: function () {
+			return ArrayLimit.create({
+				content: this.get('input'),
+				limit: 5
+			});
+		}
 	}),
 
 	addItems: function (n) {

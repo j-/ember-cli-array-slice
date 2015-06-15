@@ -29,20 +29,32 @@ var ArraySlice = Em.ArrayProxy.extend({
 		}
 	}),
 
-	content: null,
-
-	_offsetProxy: computed(function () {
-		return ArrayOffset.create({
-			content: this.get('content'),
-			offset: this.get('offset')
-		});
+	content: computed({
+		get: function () {
+			return Em.A();
+		},
+		set: function (key, content) {
+			this.set('_offsetProxy.content', content);
+			return this.get('_offsetProxy.content');
+		}
 	}),
 
-	_limitProxy: computed(function () {
-		return ArrayLimit.create({
-			content: this.get('_offsetProxy.arrangedContent'),
-			limit: this.get('limit')
-		});
+	_offsetProxy: computed({
+		get: function () {
+			return ArrayOffset.create({
+				content: this.get('content'),
+				offset: this.get('offset')
+			});
+		}
+	}),
+
+	_limitProxy: computed({
+		get: function () {
+			return ArrayLimit.create({
+				content: this.get('_offsetProxy.arrangedContent'),
+				limit: this.get('limit')
+			});
+		}
 	}),
 
 	arrangedContent: alias('_limitProxy')
@@ -50,12 +62,14 @@ var ArraySlice = Em.ArrayProxy.extend({
 
 ArraySlice.computed = {
 	slice: function (prop, offset, limit) {
-		return computed(prop, function () {
-			return ArraySlice.create({
-				content: this.get(prop),
-				offset: offset,
-				limit: limit
-			});
+		return computed(prop, {
+			get: function () {
+				return ArraySlice.create({
+					content: this.get(prop),
+					offset: offset,
+					limit: limit
+				});
+			}
 		});
 	}
 };

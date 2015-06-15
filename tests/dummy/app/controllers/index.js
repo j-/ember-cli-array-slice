@@ -5,12 +5,14 @@ var computed = Em.computed;
 var IndexController = Em.Controller.extend({
 	input: Em.A(),
 
-	output: computed(function () {
-		return ArraySlice.create({
-			content: this.get('input'),
-			limit: 5,
-			offset: 0
-		});
+	output: computed({
+		get: function () {
+			return ArraySlice.create({
+				content: this.get('input'),
+				limit: 5,
+				offset: 0
+			});
+		}
 	}),
 
 	addItems: function (n) {
