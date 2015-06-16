@@ -5,13 +5,11 @@ var computed = Em.computed;
 var TestOffsetController = Em.Controller.extend({
 	input: Em.A(),
 
-	output: computed({
-		get: function () {
-			return ArrayOffset.create({
-				content: this.get('input'),
-				offset: 0
-			});
-		}
+	output: computed(function () {
+		return ArrayOffset.create({
+			content: this.get('input'),
+			offset: 0
+		});
 	}),
 
 	addItems: function (n) {
