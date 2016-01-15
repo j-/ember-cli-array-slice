@@ -46,8 +46,8 @@
     "slice"
   ],
   "dependencies": {
-    "ember-cli-array-limit": "0.0.4",
-    "ember-cli-array-offset": "0.0.3",
+    "ember-cli-array-limit": "1.0.0",
+    "ember-cli-array-offset": "1.0.0",
     "ember-cli-babel": "^5.1.5"
   },
   "ember-addon": {

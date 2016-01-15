@@ -9,28 +9,34 @@ var DEFAULT_OFFSET = 0;
 var DEFAULT_LIMIT = Infinity;
 
 var ArraySlice = Em.ArrayProxy.extend({
-	offset: computed(function (key, offset) {
-		if (arguments.length <= 1) {
+	offset: computed({
+		get: function () {
 			return DEFAULT_OFFSET;
+		},
+		set: function (key, offset) {
+			this.set('_offsetProxy.offset', offset);
+			return this.get('_offsetProxy.offset');
 		}
-		this.set('_offsetProxy.offset', offset);
-		return this.get('_offsetProxy.offset');
 	}),
 
-	limit: computed(function (key, limit) {
-		if (arguments.length <= 1) {
+	limit: computed({
+		get: function () {
 			return DEFAULT_LIMIT;
+		},
+		set: function (key, limit) {
+			this.set('_limitProxy.limit', limit);
+			return this.get('_limitProxy.limit');
 		}
-		this.set('_limitProxy.limit', limit);
-		return this.get('_limitProxy.limit');
 	}),
 
-	content: computed(function (key, content) {
-		if (arguments.length <= 1) {
+	content: computed({
+		get: function () {
 			return Em.A();
+		},
+		set:function (key, content) {
+			this.set('_offsetProxy.content', content);
+			return this.get('_offsetProxy.content');
 		}
-		this.set('_offsetProxy.content', content);
-		return this.get('_offsetProxy.content');
 	}),
 
 	_offsetProxy: computed(function () {
